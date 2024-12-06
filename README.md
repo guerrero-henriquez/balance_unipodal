@@ -2,7 +2,7 @@
 This repository contains two MATLAB scripts designed to preprocess and analyze acceleration data for two different experimental groups: the Futsal Group and the Control Group. These scripts implement standardized signal processing techniques, including filtering, resampling, and entropy calculation, to extract meaningful metrics for further analysis.
 
 # Scripts
-# # 1. Futsal Group Processing
+# 1. Futsal Group Processing
 Processes acceleration data for futsal players, focusing on specific tests. The script:
 
 1. Imports Data: Reads .mat files containing acceleration signals along three axes (mediolateral, anteroposterior, and vertical).
@@ -16,7 +16,7 @@ Processes acceleration data for futsal players, focusing on specific tests. The 
 4.1. Calculates Root Mean Square (RMS) for filtered signals.
 4.2. Computes entropy of the filtered signals using predefined parameters (e.g., m=2, r=0.2).
 
-# # 2. Control Group Processing
+# 2. Control Group Processing
 Processes acceleration data for the control group, handling multiple files in a batch. The script:
 
 1. Batch Processing:

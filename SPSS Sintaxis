@@ -1,0 +1,47 @@
+# SPSS Sintaxis
+
+DATASET ACTIVATE Conjunto_de_datos1.
+GLM rms_ml_oa_d rms_ml_oa_nd rms_ml_oc_d rms_ml_oc_nd rms_ap_oa_d rms_ap_oa_nd rms_ap_oc_d 
+    rms_ap_oc_nd en_ml_oa_d en_ml_oa_nd en_ml_oc_d en_ml_oc_nd en_ap_oa_d en_ap_oa_nd en_ap_oc_d 
+    en_ap_oc_nd BY actividad
+  /WSFACTOR=eje 2 Polynomial vision 2 Polynomial dominancia 2 Polynomial 
+  /MEASURE=rms entropia 
+  /METHOD=SSTYPE(3)
+  /POSTHOC=actividad(BONFERRONI) 
+  /EMMEANS=TABLES(OVERALL) 
+  /EMMEANS=TABLES(actividad) COMPARE ADJ(BONFERRONI)
+  /EMMEANS=TABLES(eje) COMPARE ADJ(BONFERRONI)
+  /EMMEANS=TABLES(vision) COMPARE ADJ(BONFERRONI)
+  /EMMEANS=TABLES(dominancia) COMPARE ADJ(BONFERRONI)
+  /EMMEANS=TABLES(actividad*eje) COMPARE (actividad) ADJ(BONFERRONI)
+  /EMMEANS=TABLES(actividad*eje) COMPARE (eje) ADJ(BONFERRONI)
+  /EMMEANS=TABLES(actividad*vision)  COMPARE (actividad) ADJ(BONFERRONI)
+  /EMMEANS=TABLES(actividad*vision)  COMPARE (vision) ADJ(BONFERRONI)
+  /EMMEANS=TABLES(actividad*dominancia) COMPARE (actividad) ADJ(BONFERRONI) 
+  /EMMEANS=TABLES(actividad*dominancia) COMPARE (dominancia) ADJ(BONFERRONI) 
+  /EMMEANS=TABLES(eje*vision) COMPARE (eje) ADJ(BONFERRONI)
+  /EMMEANS=TABLES(eje*vision) COMPARE (vision) ADJ(BONFERRONI)
+  /EMMEANS=TABLES(eje*dominancia) COMPARE (eje) ADJ(BONFERRONI) 
+  /EMMEANS=TABLES(eje*dominancia) COMPARE (dominancia) ADJ(BONFERRONI) 
+  /EMMEANS=TABLES(vision*dominancia) COMPARE (vision) ADJ(BONFERRONI)
+  /EMMEANS=TABLES(vision*dominancia) COMPARE (dominancia) ADJ(BONFERRONI)
+  /EMMEANS=TABLES(actividad*eje*vision) COMPARE (actividad) ADJ(BONFERRONI) 
+  /EMMEANS=TABLES(actividad*eje*vision) COMPARE (eje) ADJ(BONFERRONI) 
+  /EMMEANS=TABLES(actividad*eje*vision) COMPARE (vision) ADJ(BONFERRONI) 
+  /EMMEANS=TABLES(actividad*eje*dominancia) COMPARE (actividad) ADJ(BONFERRONI)
+  /EMMEANS=TABLES(actividad*eje*dominancia) COMPARE (eje) ADJ(BONFERRONI) 
+  /EMMEANS=TABLES(actividad*eje*dominancia) COMPARE (dominancia) ADJ(BONFERRONI)  
+  /EMMEANS=TABLES(actividad*vision*dominancia) COMPARE (actividad) ADJ(BONFERRONI)
+  /EMMEANS=TABLES(actividad*vision*dominancia) COMPARE (vision) ADJ(BONFERRONI)
+  /EMMEANS=TABLES(actividad*vision*dominancia) COMPARE (dominancia) ADJ(BONFERRONI)
+  /EMMEANS=TABLES(eje*vision*dominancia) COMPARE (eje) ADJ(BONFERRONI)  
+  /EMMEANS=TABLES(eje*vision*dominancia) COMPARE (vision) ADJ(BONFERRONI)
+  /EMMEANS=TABLES(eje*vision*dominancia) COMPARE (dominancia) ADJ(BONFERRONI)
+  /EMMEANS=TABLES(actividad*eje*vision*dominancia) COMPARE (actividad) ADJ(BONFERRONI) 
+  /EMMEANS=TABLES(actividad*eje*vision*dominancia) COMPARE (eje) ADJ(BONFERRONI)
+  /EMMEANS=TABLES(actividad*eje*vision*dominancia) COMPARE (vision) ADJ(BONFERRONI)
+  /EMMEANS=TABLES(actividad*eje*vision*dominancia) COMPARE (dominancia) ADJ(BONFERRONI)
+  /PRINT=DESCRIPTIVE ETASQ HOMOGENEITY 
+  /CRITERIA=ALPHA(.05)
+  /WSDESIGN=eje vision dominancia eje*vision eje*dominancia vision*dominancia eje*vision*dominancia
+  /DESIGN=actividad.
